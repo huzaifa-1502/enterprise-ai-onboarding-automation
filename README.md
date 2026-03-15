@@ -12,12 +12,12 @@ The solution defines and prototypes an intelligent onboarding workflow that impr
 
 Key outcomes include
 
-• Automated intake and processing of new hire information and documents  
-• AI assisted classification, summarization, and validation of onboarding inputs  
-• Automated task routing for account setup, training assignment, and orientation scheduling  
-• Personalized onboarding plan generation based on role, department, and location  
-• Centralized workflow visibility through an automation scaffold or orchestration flow  
-• Reduced manual coordination effort across HR, IT, and hiring managers  
+- Automated intake and processing of new hire information and documents
+- AI assisted classification, summarization, and validation of onboarding inputs
+- Automated task routing for account setup, training assignment, and orientation scheduling
+- Personalized onboarding plan generation based on role, department, and location
+- Centralized workflow visibility through an n8n automation scaffold
+- Reduced manual coordination effort across HR, IT, and hiring managers
 
 This project demonstrates how AI and automation can be combined to transform onboarding from a fragmented manual process into a structured and scalable operational system.
 
@@ -37,45 +37,43 @@ This solution addresses that challenge by designing an AI driven orchestration w
 
 The proposed system automates the onboarding workflow from employee intake through milestone follow up.
 
-The automation is designed to support the following onboarding activities
+The automation supports the following onboarding activities
 
-Collect new hire information and documents  
-Set up accounts and access requests  
-Assign training and compliance modules  
-Schedule orientation and intro sessions  
-Generate personalized onboarding plans  
-Track progress and gather feedback  
+Collect new hire information and documents
+Set up accounts and access requests
+Assign training and compliance modules
+Schedule orientation and intro sessions
+Generate personalized onboarding plans
+Track progress and gather feedback
 
 AI is used where it creates operational leverage, especially in information extraction, workflow decision support, summarization, personalization, and communication scaffolding.
 
 ---
 
-# Task 1 Outcome  
+# Task 1 Outcome
 ## AI Powered Automation Solution Design
 
 The first part of this project focuses on designing an AI driven onboarding automation architecture.
 
-The designed workflow includes
+### Intake and Data Capture
+New hire information is submitted through a form or onboarding portal. Documents such as identification, signed agreements, and policy acknowledgements are uploaded at this stage.
 
-### Intake and data capture
-New hire information is submitted through a form, HR system, or onboarding portal. Documents such as identification, signed agreements, and policy acknowledgements are uploaded at this stage.
-
-### AI based data extraction and validation
+### AI Based Data Extraction and Validation
 AI extracts relevant fields from submitted documents, identifies missing information, normalizes inconsistent inputs, and flags records that require manual review.
 
-### Employee profile enrichment
+### Employee Profile Enrichment
 The workflow combines submitted data with role, department, office location, employment type, and manager information to generate a structured onboarding profile.
 
-### Task generation and routing
-Based on the onboarding profile, the system automatically creates tasks for HR, IT, compliance, and the hiring manager. These may include account provisioning, laptop setup, access requests, training assignment, and orientation planning.
+### Task Generation and Routing
+Based on the onboarding profile, the system automatically creates tasks for HR, IT, compliance, and the hiring manager including account provisioning, laptop setup, access requests, training assignment, and orientation planning.
 
-### Personalized onboarding plan creation
+### Personalized Onboarding Plan Creation
 AI generates a role specific onboarding plan containing welcome guidance, required resources, first week priorities, key contacts, and recommended training paths.
 
-### Communication support
+### Communication Support
 AI drafts welcome emails, manager handoff notes, check in prompts, and milestone reminders to improve onboarding consistency.
 
-### Feedback and milestone monitoring
+### Feedback and Milestone Monitoring
 The workflow triggers milestone check ins at defined intervals and gathers new hire feedback for operational review.
 
 ---
@@ -84,13 +82,13 @@ The workflow triggers milestone check ins at defined intervals and gathers new h
 
 AI is intentionally applied to high value tasks within the workflow.
 
-### Document understanding
+### Document Understanding
 AI extracts structured information from uploaded onboarding documents and reduces manual review effort.
 
-### Input normalization
+### Input Normalization
 AI standardizes free text responses, resolves formatting inconsistencies, and improves data quality before records move downstream.
 
-### Decision support
+### Decision Support
 AI helps determine onboarding requirements based on role, department, geography, or employment type.
 
 ### Personalization
@@ -99,153 +97,120 @@ AI generates tailored onboarding plans and communication drafts based on employe
 ### Summarization
 AI converts fragmented onboarding data into concise summaries for HR, IT, and managers.
 
-### Workflow acceleration
-AI reduces the time spent drafting messages, interpreting intake forms, and translating new hire data into executable onboarding actions.
-
 ---
 
 # Prompt Engineering Approach
 
-Prompt design is used to ensure the AI output is structured, consistent, and usable inside automation workflows.
+Prompt design is used to ensure AI output is structured, consistent, and usable inside automation workflows.
 
-### Example prompt objective
-Extract and structure onboarding data from submitted forms and uploaded documents.
+### Core Extraction Prompt Used
+```
+You are an onboarding operations assistant. Extract the following fields 
+from the provided employee intake data: full name, personal email, 
+company email, job title, department, location, manager name, 
+employment type, start date, required systems access, missing documents, 
+and any issues that require manual HR review. 
+Return the result in valid JSON.
+```
 
-### Example prompt pattern
-You are an onboarding operations assistant. Extract the following fields from the provided employee intake data and attached documents: full name, personal email, company email if available, job title, department, location, manager name, employment type, start date, required systems access, missing documents, and any issues that require manual HR review. Return the result in valid JSON.
+### Additional Prompt Use Cases Implemented
 
-### Additional prompt use cases
-Generate a personalized first week onboarding plan  
-Draft a welcome email for the new hire  
-Create a summary for the hiring manager  
-Identify missing compliance items before start date  
-Recommend training modules based on role and department  
+- Generate a personalized first week onboarding plan
+- Draft a welcome email for the new hire
+- Create a summary for the hiring manager
+- Identify missing compliance items before start date
+- Recommend training modules based on role and department
 
-### Prompt design principles
-Structured output format  
-Clear role instruction  
-Strict field extraction requirements  
-Minimal ambiguity in downstream automation  
-Fallback handling for missing information  
+### Prompt Design Principles Applied
 
----
-
-# Data Flow and Integrations
-
-The automation can be implemented using no code orchestration tools such as n8n or Zapier, combined with AI APIs and standard business systems.
-
-Example data flow
-
-New hire form or HRIS submission  
-→ automation trigger  
-→ AI extraction and validation  
-→ structured onboarding record creation  
-→ task routing to HR and IT systems  
-→ training assignment and calendar support  
-→ onboarding plan generation  
-→ milestone tracking and feedback collection  
-
-Potential integrations include
-
-Google Forms or Typeform for intake  
-Google Sheets, Airtable, or HRIS for structured records  
-OpenAI or other LLM APIs for extraction and generation  
-Slack or email for notifications  
-Google Calendar or Outlook for scheduling  
-Notion, Confluence, or internal portals for onboarding resources  
-Jira, Trello, or ClickUp for task management  
+- Structured JSON output format
+- Clear role instruction
+- Strict field extraction requirements
+- Minimal ambiguity in downstream automation
+- Fallback handling for missing information
 
 ---
 
-# Task 2 Outcome  
+# Task 2 Outcome
 ## Implementation Demo and Prototype Scaffold
 
-The second part of this project focuses on creating a working scaffold or prototype of the proposed automation.
+The second part of this project focuses on a working prototype scaffold built using n8n.
 
-The implementation demo can be built in n8n or Zapier and is designed to show the core orchestration logic.
+### Prototype Flow Implemented
+```
+Form Trigger
+→ Validate new hire record
+→ AI extract and clean fields
+→ Create onboarding record in Airtable
+→ Generate personalized onboarding checklist
+→ Send HR notification
+→ Send manager summary
+→ Assign follow up tasks
+→ Update onboarding status
+```
 
-Prototype capabilities include
+### n8n Workflow Nodes Used
 
-### Trigger
-A new hire record is submitted through a form or entered into a data table.
+- Webhook trigger node for new hire intake
+- HTTP Request node for OpenAI API call
+- Code node for data extraction and field mapping
+- Airtable node for record creation
+- Email node for HR and manager notifications
+- IF node for conditional routing based on missing fields
+- Set node for status updates
 
-### Processing
-The workflow collects the record, sends structured fields to an AI node or API, and receives cleaned or enriched outputs.
+### Sample Data Used
 
-### Routing
-The workflow generates onboarding tasks, sends notifications, and updates the onboarding record with status fields.
-
-### Personalization
-The workflow calls an AI step to generate a welcome summary or onboarding plan.
-
-### Output
-The processed result is stored in a table, sent to stakeholders, or displayed in the automation tool.
-
-This prototype demonstrates the architecture even if all production integrations are not fully connected.
+Sample onboarding records were used to demonstrate the workflow logic. AI extraction logic is included in the Python code scaffold. The n8n workflow shows the core orchestration logic across all major onboarding steps.
 
 ---
 
-# Example Prototype Flow
+# Data Flow
 
-A basic implementation flow could follow this sequence
-
-Form Trigger  
-→ Validate new hire record  
-→ AI extract and clean fields  
-→ Create onboarding record in Airtable or Google Sheets  
-→ Generate personalized onboarding checklist  
-→ Send HR notification  
-→ Send manager summary  
-→ Assign follow up tasks  
-→ Update onboarding status  
-
-This scaffold proves the core orchestration logic required for a production ready onboarding automation platform.
+New hire form submission
+→ automation trigger in n8n
+→ AI extraction and validation via OpenAI API
+→ structured onboarding record creation in Airtable
+→ task routing to HR and IT
+→ personalized onboarding plan generation
+→ HR and manager notification
+→ milestone tracking and feedback collection
 
 ---
 
 # Technology Stack
 
-The following tooling can support the solution.
-
 ## Automation Layer
-n8n  
-Zapier  
+n8n — core workflow orchestration
 
 ## AI Layer
-OpenAI API  
-LLM based extraction and generation  
-Prompt based structured outputs  
+OpenAI API
+Prompt based structured JSON extraction and generation
 
 ## Data Layer
-Airtable  
-Google Sheets  
-HRIS or internal database  
+Airtable — onboarding records and tracking
 
-## Communication and Scheduling
-Gmail or Outlook  
-Slack  
-Google Calendar or Microsoft Outlook Calendar  
-
-## Documentation and Resources
-Notion  
-Confluence  
-Shared drive or onboarding portal  
+## Communication
+Email notifications for HR and managers
 
 ---
 
 # Repository Structure
-
 ```
-ai-onboarding-automation-architecture
+enterprise-ai-onboarding-automation
 
 submissions
  ├── task1_solution.md
- ├── task2_solution.md
+ └── task2_solution.md
 
 assets
  ├── workflow-diagrams
+ │   └── n8n_workflow_diagram.png
  ├── screenshots
- ├── demo-video
+ │   ├── n8n_workflow.png
+ │   ├── airtable_base.png
+ │   └── ai_extraction_output.png
+ └── demo-video
 
 INSTRUCTIONS.md
 DEADLINE_AND_RULES.md
@@ -258,46 +223,51 @@ README.md
 
 # Deliverables Included
 
-This repository is intended to contain
+- AI onboarding workflow design documentation
+- Prompt engineering details and reasoning
+- n8n automation scaffold with core orchestration logic
+- Python based AI extraction code
+- Workflow diagram and screenshots
+- Completed submission template
 
-• AI onboarding workflow design documentation  
-• Prompt engineering details and reasoning  
-• Automation logic or orchestration flow  
-• Prototype screenshots or workflow export  
-• Supporting diagrams, code snippets, or demo assets  
-• Completed submission template  
+---
+
+# Assumptions
+
+- Sample data is used for demonstration purposes
+- AI extraction logic is included in Python code scaffold
+- n8n workflow scaffold shows core orchestration logic
+- Full production integrations such as HRIS and identity systems are not connected in this prototype
+- OpenAI API is used as the AI layer for extraction and generation tasks
 
 ---
 
 # Business Impact
 
-This solution improves onboarding by reducing manual coordination and increasing process consistency across teams.
-
 Expected impact includes
 
-• Faster onboarding cycle time  
-• Lower administrative burden on HR and operations teams  
-• Improved data completeness and process reliability  
-• Better onboarding experience for new hires  
-• Stronger operational visibility into progress and blockers  
-
-The architecture is designed to be extensible and suitable for enterprise scale onboarding scenarios.
+- Faster onboarding cycle time
+- Lower administrative burden on HR and operations teams
+- Improved data completeness and process reliability
+- Better onboarding experience for new hires
+- Stronger operational visibility into progress and blockers
 
 ---
 
 # Future Enhancements
 
-Possible future improvements include
-
-• Full HRIS integration  
-• Automated access provisioning through identity systems  
-• Compliance deadline monitoring  
-• Role based training recommendation engine  
-• Conversational onboarding assistant for new hires  
-• Analytics dashboard for onboarding performance and drop off analysis  
+- Full HRIS integration
+- Automated access provisioning through identity systems
+- Compliance deadline monitoring
+- Role based training recommendation engine
+- Conversational onboarding assistant for new hires
+- Analytics dashboard for onboarding performance
 
 ---
 
 # Author
+
+Candidate: Huzaifa Ahmed
+Email: huzaifafabi15@gmail.com
 
 Developed as part of an AI Tooling Specialist assessment focused on workflow architecture, AI automation design, and prototype implementation for enterprise onboarding systems.
